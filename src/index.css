@@ -1,1 +1,16 @@
+@config "../tailwind.config.js";
 @import "tailwindcss";
+
+@layer base {
+    .container {
+        @apply text-2xl text-center flex justify-center items-center
+    }
+
+    h1 {
+        @apply font-bold text-5xl
+    }
+
+    .text {
+        @apply bg-white rounded-sm
+    }
+}
