@@ -11,6 +11,14 @@
     }
 
     .text {
-        @apply bg-white rounded-sm
+        @apply bg-white rounded-sm w-4/5
+    }
+
+    button {
+        @apply cursor-pointer rounded-lg p-2
+    }
+
+    .error {
+        @apply text-red-600 text-xl
     }
 }
