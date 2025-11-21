@@ -9,8 +9,11 @@ function SideBar ({addTask}) {
         const task = document.getElementById("task-in").value;
         if(!time || !task)
             setError(true);
-        else
+        else {
             addTask(time, task);
+            document.getElementById("item-in").value = "hi";
+            document.getElementById("task-in").value = "";
+        }
     }
 
     return <div className="container flex-col gap-8 sidebar bg-amber-500 flex-1">

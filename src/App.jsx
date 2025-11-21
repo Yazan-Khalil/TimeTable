@@ -9,9 +9,13 @@ function App() {
         setTasks(prev => [...prev, {time:time, task:task}]);
     }
 
+    function removeTask(id) {
+        setTasks(prev => prev.filter((task, index) => index !== id));
+    }
+
     return <div className="flex w-screen h-screen border-collapse bg-scroll">
-        <MainPage tasks={tasks}/>
-        <SideBar addTask={addTask}/>
+        <MainPage tasks={tasks} removeTask={removeTask} />
+        <SideBar addTask={addTask} />
     </div>
 }
 
