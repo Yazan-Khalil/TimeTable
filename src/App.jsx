@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import MainPage from "./MainPage";
 import SideBar from "./SideBar";
 
 function App() {
-    const [tasks, setTasks] = useState([{time:"09:00 - 10:00", task:"CP"}]);
+    const [tasks, setTasks] = useState(() => {
+        const saved = localStorage.getItem("tasks");
+        return saved? JSON.parse(saved): [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks])
 
     function addTask(time, task) {
-        setTasks(prev => [...prev, {time:time, task:task}]);
+        setTasks(prev => [...prev, {time:time, task:task}].sort((a, b) => a.time.localeCompare(b.time)));
     }
 
     function removeTask(id) {
